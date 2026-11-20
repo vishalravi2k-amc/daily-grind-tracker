@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1120">
+<meta name="description" content="20 Nov 2026 Hybrid Matrix evening study tracker for R Harivishnu, AMCEC AI & ML, and Vijay Bhaskar, KSIT Mechanical, VTU fifth semester.">
+<title>Hybrid Matrix — Harivishnu & Vijay Bhaskar</title>
+<style>
+:root{--bg:#09101c;--card:#142034;--panel:#0f1a2b;--muted:#a5b4c8;--line:#32455e;--lime:#b9f38b;--blue:#93c8ff;--text:#f3f6fc;--gold:#ffd091}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at top,#172d3f 0%,#09101c 56%);color:var(--text);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+button,textarea{font:inherit}button{cursor:pointer}button:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+main{max-width:880px;margin:0 auto;padding:24px 17px 64px}
+nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:25px}
+.logo{display:flex;gap:11px;align-items:center;font-size:17px;font-weight:850;letter-spacing:-.3px}
+.logoIcon{background:var(--lime);color:#123324;border-radius:11px;width:40px;height:40px;display:grid;place-items:center;font-weight:950;font-size:19px}
+.small{font-size:12px;color:var(--muted)}
+.kicker{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--lime);font-weight:900}
+.hero{background:linear-gradient(118deg,#213d47 0%,#1b2d43 60%,#152237 100%);border:1px solid #426070;border-radius:24px;padding:26px 28px;position:relative;overflow:hidden;box-shadow:0 20px 60px #0002}
+.hero::after{content:"";position:absolute;width:260px;height:260px;border:1px solid #b9f38b22;border-radius:50%;right:-125px;top:-100px;pointer-events:none}
+h1{font-size:clamp(28px,6vw,45px);line-height:1.12;letter-spacing:-1.5px;margin:8px 0 9px}h1 em{font-style:normal;color:var(--lime)}
+.hero p{color:#c3d4e5;margin:0;max-width:600px}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:17px}.tag{border:1px solid #607184;background:#20384a;color:#e5f1ff;padding:5px 10px;border-radius:99px;font-size:11px;font-weight:700}
+.secTitle{font-size:11px;letter-spacing:1.7px;text-transform:uppercase;color:var(--muted);font-weight:900;margin:25px 0 10px}
+.switch{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.student{display:flex;text-align:left;align-items:center;gap:10px;border:1px solid var(--line);border-radius:16px;color:var(--text);background:#111e30;padding:14px;min-width:0}
+.student.active{border-color:var(--lime);background:linear-gradient(110deg,#213c3c,#1b3041);box-shadow:inset 0 0 0 1px #b9f38b33}
+.avatar{width:41px;height:41px;flex:0 0 41px;display:grid;place-items:center;border-radius:12px;background:#29405a;color:var(--blue);font-weight:900}.student.active .avatar{background:var(--lime);color:#223425}
+.studentName{font-size:14px;font-weight:850;display:block;line-height:1.2}.studentInfo{display:block;font-size:11px;color:var(--muted);margin-top:4px}.studentPct{font-size:12px;color:var(--lime);font-weight:850;margin-left:auto}
+.progress{background:#0e1929;border:1px solid var(--line);border-radius:15px;padding:14px 16px;margin-top:12px}.progHead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}.progHead strong{font-size:13px}.track{height:8px;background:#293b51;border-radius:99px;overflow:hidden;margin-top:11px}.fill{height:100%;background:linear-gradient(90deg,#72bdb9,var(--lime));width:0;transition:width .2s}
+.stepNav{display:flex;gap:7px;overflow-x:auto;scrollbar-width:thin;padding:12px 0 10px}.stepBtn{flex:0 0 37px;width:37px;height:36px;background:#18273b;border:1px solid #354c63;border-radius:10px;color:#c5d4e7;font-size:12px;font-weight:900}.stepBtn.active{background:var(--lime);color:#183021;border-color:var(--lime)}.stepBtn.done:not(.active){background:#25513d;border-color:#4a8768;color:#bdf4cb}.stepBtn.skip:not(.active){background:#493e2c;border-color:#80633a;color:#ffe2b6}.stepBtn:disabled{opacity:.37;cursor:not-allowed}
+.focus{background:linear-gradient(160deg,#182d41,#101c2e 78%);border:1px solid #496178;border-radius:23px;padding:24px;box-shadow:0 19px 48px #0003}
+.headRow{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}.status{padding:5px 11px;border-radius:99px;font-size:11px;text-transform:uppercase;letter-spacing:.8px;font-weight:900;border:1px solid #60728c;background:#213a4b;color:var(--lime)}.time{color:#d6e4f6;font-weight:850;font-size:13px}
+h2{font-size:clamp(23px,4.5vw,32px);line-height:1.18;letter-spacing:-.7px;margin:18px 0 6px}.desc{margin:0;color:#bed1e5}
+.mission{margin:17px 0;padding:12px 15px;background:#1e3646;border-left:3px solid var(--lime);border-radius:0 11px 11px 0;font-weight:650}
+.columns{display:grid;grid-template-columns:1.1fr .9fr;gap:11px}.info{background:#0e1b2d;border:1px solid #30485f;border-radius:13px;padding:15px}.info h3{color:var(--blue);letter-spacing:1.4px;text-transform:uppercase;font-size:11px;margin:0 0 8px}.info ol{padding-left:19px;margin:0}.info li{margin:0 0 8px;color:#e0eaf6}.info li:last-child{margin-bottom:0}.info p{margin:0;color:#e0eaf6}
+.qa{margin-top:13px;background:#12273a;border:1px solid #38526d;border-radius:13px;padding:14px 15px}.qaTitle{font-size:11px;color:var(--gold);letter-spacing:1.5px;font-weight:900;text-transform:uppercase}.question{font-weight:700;margin:6px 0 10px;white-space:pre-line}.answer{margin:11px 0 0;border-top:1px solid #36526d;padding-top:12px;color:#d7f3df;white-space:pre-line}
+.notes{margin-top:15px}.notes label{display:block;font-size:12px;font-weight:750;color:var(--muted);margin-bottom:7px}.notes textarea{height:81px;resize:vertical;width:100%;background:#0a1728;border:1px solid #3b536a;border-radius:11px;padding:12px;color:var(--text);line-height:1.45}.notes textarea::placeholder{color:#8295ad}
+button.secondary{padding:9px 12px;background:#253a50;border:1px solid #4a627c;color:#edf5ff;border-radius:10px;font-size:12px;font-weight:800}.secondary:hover{background:#334b63}.actions{margin-top:15px;display:flex;gap:9px;align-items:center;flex-wrap:wrap}.primary{border:0;border-radius:11px;padding:12px 16px;background:var(--lime);color:#182d20;font-size:14px;font-weight:950}.primary:hover{background:#d6ffb5}.muted{color:var(--muted);font-size:12px}
+.timer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:15px;border:1px solid #385069;border-radius:13px;padding:10px 12px;background:#13253a}.countdown{font-size:24px;letter-spacing:.6px;color:var(--blue);font-variant-numeric:tabular-nums;font-weight:950;min-width:85px}.timerText{color:var(--muted);font-size:12px;margin-right:auto}
+.gridBottom{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:17px}.mini{background:#101c2f;border:1px solid #30445c;border-radius:14px;padding:15px}.mini h3{margin:0 0 6px;font-size:14px}.mini p{margin:0 0 10px;font-size:12px;color:var(--muted)}.links{display:flex;flex-wrap:wrap;gap:7px}.links a{color:var(--blue);text-decoration:none;font-weight:750;font-size:12px;background:#213347;padding:6px 9px;border:1px solid #425a73;border-radius:8px}.links a:hover{text-decoration:underline}
+.footer{margin-top:22px;font-size:12px;color:var(--muted);text-align:center}.footer p{margin:8px 0}
+@media(max-width:580px){main{padding:15px 12px 48px}nav{margin-bottom:16px}.hero{padding:23px 19px}.student{gap:8px;padding:11px}.avatar{width:34px;height:34px;flex-basis:34px}.studentName{font-size:12px}.studentInfo{font-size:10px}.studentPct{font-size:11px}.focus{padding:19px 15px}.columns,.gridBottom{grid-template-columns:1fr}.info{padding:13px}.logo{font-size:16px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<nav>
+<div class="logo"><span class="logoIcon">H×</span><span>HYBRID MATRIX <span class="small">/ 05</span></span></div>
+<span class="small">FRI · 20 NOV 2026</span>
+</nav>
+<header class="hero">
+<div class="kicker">THE EVENING STUDY SYSTEM · VTU 2022 SCHEME</div>
+<h1>Two streams. <em>One mission.</em></h1>
+<p>A practical 5 PM–10 PM plan. One task on screen at a time, with branch-specific exercises, answers, notebook work and independent progress.</p>
+<div class="tags"><span class="tag">5:00 PM START</span><span class="tag">VTU 5TH SEM</span><span class="tag">GATE + CORE</span><span class="tag">NO LOGIN</span></div>
+</header>
+<div class="secTitle">01 / Select your student track</div>
+<div class="switch" role="group" aria-label="Choose a student">
+<button class="student active" id="student0" type="button"><span class="avatar">RH</span><span><span class="studentName">R Harivishnu</span><span class="studentInfo">AMCEC · AI & ML · VTU</span></span><span class="studentPct" id="pct0">0%</span></button>
+<button class="student" id="student1" type="button"><span class="avatar">VB</span><span><span class="studentName">Vijay Bhaskar</span><span class="studentInfo">KSIT · Mechanical · VTU</span></span><span class="studentPct" id="pct1">0%</span></button>
+</div>
+<div class="progress"><div class="progHead"><strong id="progressTitle">Today's progress</strong><span class="muted" id="progressNote">0 of 8 activities completed</span></div><div class="track" role="progressbar" id="progressBar" aria-label="Student completed activities" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="fill" id="progressFill"></div></div></div>
+<div class="secTitle">02 / Your next activity <span style="letter-spacing:0;text-transform:none;font-weight:500">(tap completed steps to review)</span></div>
+<div class="stepNav" id="stepNav" aria-label="Schedule steps"></div>
+<section class="focus" aria-live="polite">
+<div class="headRow"><span class="status" id="status">STEP 1 / 10</span><span class="time" id="slot">5:00–5:15 PM</span></div>
+<h2 id="title">Get ready</h2><p class="desc" id="subtitle"></p>
+<div class="mission" id="mission"></div>
+<div class="columns"><div class="info"><h3>Notebook action plan</h3><ol id="steps"></ol></div><div class="info"><h3>Evidence of completion</h3><p id="deliverable"></p></div></div>
+<div class="qa"><div class="qaTitle">Practice / self-check</div><div class="question" id="question"></div><button class="secondary" id="answerButton" type="button" aria-expanded="false">Show explained answer</button><div id="answer" class="answer" hidden></div></div>
+<div class="notes"><label for="notesInput">MY NOTEBOOK LOG — saves on this device</label><textarea id="notesInput" placeholder="What did I write? What did I find difficult?"></textarea></div>
+<div class="timer"><div id="countdown" class="countdown">15:00</div><span class="timerText">Focus timer (optional)</span><button type="button" class="secondary" id="timerToggle">Start</button><button type="button" class="secondary" id="timerReset">Reset</button></div>
+<div class="actions">
+<button type="button" class="primary" id="done">Mark completed →</button><button type="button" class="secondary" id="back">← Previous</button><button type="button" class="secondary" id="skip">Skip for now →</button>
+</div><p class="muted" id="hint">Complete or skip to unlock the next step.</p>
+</section>
+<div class="gridBottom">
+<div class="mini"><h3>📚 Useful study sources</h3><p>Start with prescribed notes, then use official syllabus and GATE past papers.</p><div class="links"><a href="https://vtu.ac.in/b-e-scheme-syllabus/" target="_blank" rel="noopener noreferrer">VTU syllabus</a><a href="https://vtu.ac.in/model-question-paper-b-e-b-tech-b-arch/" target="_blank" rel="noopener noreferrer">VTU model papers</a><a href="https://gate2026.iitg.ac.in/" target="_blank" rel="noopener noreferrer">GATE official resources</a></div></div>
+<div class="mini"><h3>📌 Session summary</h3><p>Review or send a short progress report. Each student has separate notes on this browser.</p><div class="links"><button class="secondary" id="copySummary">Copy report</button><button class="secondary" id="copyLink">Copy site link</button><button class="secondary" id="resetAll">Reset my progress</button></div><p class="muted" id="copyStatus" role="status" style="margin:9px 0 0"></p></div>
+</div>
+<footer class="footer"><p>Public study page · Personal progress stays in this browser and is not synchronized between devices.</p><p>Built for R Harivishnu (AMCEC, AI & ML) and Vijay Bhaskar (KSIT, Mechanical) · 20 November 2026.</p></footer>
+</main>
+<script>
+"use strict";
+const shared=[
+{time:"5:00–5:15 PM",mins:15,kind:"Setup",title:"Set the desk. Set the target.",sub:"A short warm-up before the serious work begins.",mission:"Create one notebook page dated 20/11/2026. Aim for readable answers, not passive video hours.",steps:["Put phone on Do Not Disturb; open the correct VTU notebooks.","Write today's date and a one-sentence academic goal.","Write the three hardest topics you need to tackle next."],deliver:"One page with a target and a 3-item topic checklist.",q:"Why is active recall better than rereading?",a:"Active recall forces you to retrieve information without seeing it, making gaps visible. After studying a concept, close the material and write what you remember."},
+{time:"6:15–6:30 PM",mins:15,kind:"Break",title:"Pause without losing momentum",sub:"Water, stretch and reset. No unnecessary scrolling.",mission:"Take a real 15-minute break.",steps:["Stand up, stretch shoulders and neck.","Drink water, have a small snack if needed.","Return with the next notebook open."],deliver:"Come back ready to solve the next core subject problem.",q:"What is the rule for this break?",a:"Avoid a long video or social feed. A short walk helps you reset without extending a 15-minute break into an hour."},
+{time:"7:20–7:50 PM",mins:30,kind:"Dinner",title:"Dinner and recovery",sub:"Eat properly and give your eyes a break.",mission:"Use this 30-minute window for food and a brief reset.",steps:["Eat dinner without rushing.","Rest your eyes and avoid studying on the phone.","Keep the next GATE question page ready."],deliver:"Return at 7:50 PM.",q:"Why not study during dinner?",a:"A planned meal break improves adherence to an evening routine. Preserve attention for the practice questions that follow."},
+{time:"9:25–9:45 PM",mins:20,kind:"Aptitude + English",title:"Quantitative aptitude + English",sub:"Shared placement and study-abroad foundations.",mission:"Solve one quantitative problem and write three clear English sentences.",steps:["Solve this aptitude problem on paper before viewing the answer.","Write a 3-sentence English summary of one topic studied today.","Identify one new technical term and define it."],deliver:"One solved quantitative question + 3 English sentences.",q:"A train covers 180 km at 60 km/h. How long does the journey take?",a:"Time = Distance ÷ Speed = 180 ÷ 60 = 3 hours. Keep km and km/h consistent so the unit of the answer is hours."},
+{time:"9:45–10:00 PM",mins:15,kind:"Final recall",title:"Close the books with recall",sub:"Make tomorrow easier than today.",mission:"Review without looking at your notes first.",steps:["Write three key concepts learned tonight from memory.","Mark any weak point with a star for tomorrow.","Write the first question you will practice tomorrow."],deliver:"A 3-point recall page and a precise next-day starting question.",q:"What counts as finishing this block successfully?",a:"You can explain three facts from memory, identify one doubt, and choose tomorrow's first task. You do not need to finish the whole syllabus in one evening."}
+];
+const plans=[
+{person:"R Harivishnu",branch:"AMCEC · AI & ML",tasks:[
+shared[0],
+{time:"5:15–6:15 PM",mins:60,kind:"VTU Core · BCS503",title:"Theory of Computation — finite automata",sub:"VTU Module 2 revision / Module 3 bridge. Adjust to your college notes.",mission:"Draw the minimal DFA for decimal strings representing multiples of 3.",steps:["Review DFA definition and the 5-tuple (Q, Σ, δ, q₀, F).","Draw states q0, q1 and q2 for remainders 0, 1 and 2.","Write transition rule δ(qr,d)=q((10r+d) mod 3); test 12 and 14.","Write a short paragraph explaining why q0 is accepting."],deliver:"One complete 3-state DFA diagram, transition rule and two tested strings.",q:"For a decimal DFA modulo 3, which state follows q1 on digit 2?",a:"Compute (10×1 + 2) mod 3 = 12 mod 3 = 0. So δ(q1,2)=q0. The accepted remainder is 0."},
+shared[1],
+{time:"6:30–7:20 PM",mins:50,kind:"VTU Core · BCS502",title:"Computer Networks — CRC and checksum",sub:"Revisit data-link layer error detection before moving ahead.",mission:"Practice binary CRC long division and explain why the remainder matters.",steps:["Write a 5–7 line definition of CRC and generator polynomial.","Take dataword 1001 and divisor 1011; append three zeros.","Perform XOR division on paper, then verify with the worked answer.","In 2–3 lines, contrast CRC and Internet checksum."],deliver:"One complete CRC calculation with transmitted codeword and a CRC/checksum comparison.",q:"Compute CRC remainder for dataword 1001 with divisor 1011.",a:"Append three 0s: 1001000. Modulo-2 divide by 1011. Remainder = 110; transmitted codeword = 1001110. Receiver divides codeword by 1011; zero remainder means no error was detected."},
+shared[2],
+{time:"7:50–8:30 PM",mins:40,kind:"GATE CS",title:"GATE CS — discrete math + DSA",sub:"One clean solution is better than five guessed answers.",mission:"Practice remainder arithmetic, time complexity, and one short PYQ.",steps:["Write the definition of O(log n) for repeated halving.","Solve the sample recurrence without looking at the answer.","Attempt one GATE CS previous-year question from an official paper.","Explain your method aloud in two sentences."],deliver:"Two solved questions: one guided + one GATE PYQ.",q:"Find T(n) if T(n)=T(n/2)+1 and T(1)=1, for n a power of 2.",a:"After k halvings, n/2^k = 1, so k = log₂n. Each level adds 1 and the base contributes 1. Therefore T(n) = log₂n + 1 = Θ(log n)."},
+{time:"8:30–9:00 PM",mins:30,kind:"Practical · CN Lab",title:"Computer Networks lab — record + code",sub:"Write for the notebook, not only the terminal.",mission:"Document one of the first five CN experiments, then rehearse its logic.",steps:["Pick one experiment from the lab's first five programs.","Write Aim, Algorithm, Program, Sample Output and Result neatly.","Trace the code with a sample input or run it on Linux.","Circle one syntax or logic error to revise tomorrow."],deliver:"One lab record entry with output and a short explanation.",q:"What do GCC commands do in a C networking lab?",a:"gcc program.c -o program compiles source code into an executable named program. ./program runs that executable in the Linux terminal. Compiler success does not by itself prove that the algorithm is correct."},
+{time:"9:00–9:25 PM",mins:25,kind:"Project · AI & ML",title:"Build the AI project in a measurable way",sub:"Small commits count. Unverified accuracy claims do not.",mission:"Document one reproducible improvement to a beginner AI/ML GitHub project.",steps:["Write the problem statement in one sentence.","List the inputs, expected outputs and a simple baseline model.","Add one README section: setup, how to run, or current limitations.","If code changed, test it before committing."],deliver:"A clearer README, a tested change, or a reproducible baseline plan.",q:"Why do we split machine-learning data into training and test sets?",a:"Training data teaches the model; held-out test data estimates how well it performs on unseen examples. Evaluating only on training data can hide overfitting."},
+shared[3],shared[4]
+]},
+{person:"Vijay Bhaskar",branch:"KSIT · Mechanical",tasks:[
+shared[0],
+{time:"5:15–6:15 PM",mins:60,kind:"VTU Core · BME503",title:"Theory of Machines — velocity ratio",sub:"Focus on mechanism fundamentals and a labeled diagram.",mission:"Understand a four-bar mechanism, then solve a velocity-ratio example.",steps:["Draw a four-bar linkage and label all four links and revolute joints.","Define machine, mechanism, kinematic pair and degree of freedom.","Write the relation v = rω for tangential velocity.","Solve the guided angular-velocity numerical on paper."],deliver:"One labeled four-bar diagram + key definitions + one numerical.",q:"A rotating crank has radius 0.20 m and angular velocity 10 rad/s. Find tangential speed at its end.",a:"Use v = rω. v = 0.20 × 10 = 2 m/s. This is tangential speed of a point 0.20 m from the axis."},
+shared[1],
+{time:"6:30–7:20 PM",mins:50,kind:"VTU Core · BME502",title:"Turbo Machines — Euler energy equation",sub:"Build the concepts before memorizing equations.",mission:"Differentiate pumps, turbines and compressors, then practice work transfer.",steps:["Define turbomachine in two or three lines.","Sketch velocity triangles in your class notebook.","Write the Euler specific work equation Δh₀ = U₂Vw₂ − U₁Vw₁.","Solve the guided example and mention the unit."],deliver:"One concept page, velocity-triangle sketch, and solved example.",q:"Given U₂=20 m/s, Vw₂=15 m/s, U₁=10 m/s and Vw₁=5 m/s, calculate work transfer per unit mass.",a:"Euler equation: Δh₀=U₂Vw₂−U₁Vw₁ = (20×15) − (10×5) = 250 J/kg. The sign convention depends on whether work is done on or by the fluid."},
+shared[2],
+{time:"7:50–8:30 PM",mins:40,kind:"GATE ME",title:"GATE ME — engineering mechanics",sub:"Revise foundations needed for both VTU and GATE.",mission:"Draw a free-body diagram and solve one balanced-force numerical.",steps:["Write Newton's second law: ΣF=ma.","Sketch all forces acting on a simple block on a horizontal surface.","Solve the net-force problem without opening the answer.","Attempt one basic GATE ME PYQ on mechanics."],deliver:"One correct free-body diagram and two answered questions.",q:"A 5 kg block experiences a net horizontal force of 20 N. Find acceleration.",a:"Newton's second law gives a=F/m = 20/5 = 4 m/s², in the direction of the net force. The 20 N must be net force after accounting for friction."},
+{time:"8:30–9:00 PM",mins:30,kind:"Practical · BME Lab",title:"CNC programming & 3D printing",sub:"Mechanical VTU fifth-semester lab practice.",mission:"Write a short CNC program and explain each line.",steps:["Revise the meaning of G00, G01, M03 and M30.","Draft a basic, non-executable tool-path example in your notebook.","Label the operations on a simple 2D drawing.","Write two safe checks for machining / simulation."],deliver:"A handwritten program outline with line-by-line meanings and safety notes.",q:"What is the difference between G00 and G01 in basic CNC programming?",a:"G00 requests rapid positioning, generally without cutting. G01 requests controlled linear interpolation at a specified feed rate. Verify controller syntax and simulate before any machine operation."},
+{time:"9:00–9:25 PM",mins:25,kind:"Mechanical project",title:"CAD + mini-project planning",sub:"Build practical engineering evidence for internships.",mission:"Turn one real mechanical problem into a mini-project concept.",steps:["Choose a realistic problem: linkage, energy efficiency or a 3D-printed part.","Sketch the mechanism or part, with approximate dimensions.","List CAD tools, required materials and one testable performance metric.","Write the next action you could finish in 30 minutes."],deliver:"One sketch, a mini-project question and a small bill-of-materials outline.",q:"Why define a measurable project metric early?",a:"A metric makes project success testable. Examples: percent reduction in friction loss, maximum load supported, dimensional error in mm, or print material mass in grams."},
+shared[3],shared[4]
+]}];
+const storageKey="hybrid-matrix-hv-20-nov-2026-v1";
+let current=0,step=0,revealed=false,running=false,seconds=900,timer=null;
+function fresh(){return {state:Array(10).fill("pending"),notes:Array(10).fill(""),active:0}}
+function read(){try{const x=JSON.parse(localStorage.getItem(storageKey));if(Array.isArray(x)&&x.length===2&&x.every(y=>Array.isArray(y.state)&&y.state.length===10&&Array.isArray(y.notes)&&y.notes.length===10))return x}catch(e){}return [fresh(),fresh()]}
+let saved=read();
+const el=id=>document.getElementById(id);
+const totalDone=i=>saved[i].state.filter(s=>s==="done").length;
+function countPct(i){return Math.round(100*totalDone(i)/10)}
+function persist(){try{localStorage.setItem(storageKey,JSON.stringify(saved))}catch(e){el("copyStatus").textContent="Browser storage unavailable. Progress may not persist."}}
+function stopTimer(){if(timer)clearInterval(timer);timer=null;running=false;el("timerToggle").textContent="Start"}
+function fmt(secs){return String(Math.floor(secs/60)).padStart(2,"0")+":"+String(secs%60).padStart(2,"0")}
+function resetTimer(){stopTimer();seconds=plans[current].tasks[step].mins*60;el("countdown").textContent=fmt(seconds)}
+function reachable(i,n){return n<=saved[i].active||saved[i].state[n]!=="pending"}
+function render(){
+const p=plans[current],t=p.tasks[step],s=saved[current];
+el("student0").classList.toggle("active",current===0);el("student1").classList.toggle("active",current===1);
+for(let i=0;i<2;i++){el("student"+i).setAttribute("aria-pressed",String(current===i));el("pct"+i).textContent=countPct(i)+"%"}
+el("progressTitle").textContent=p.person+"'s progress";
+el("progressNote").textContent=totalDone(current)+" of 10 blocks completed";
+el("progressFill").style.width=countPct(current)+"%";el("progressBar").setAttribute("aria-valuenow",String(countPct(current)));
+el("stepNav").innerHTML="";
+p.tasks.forEach((task,j)=>{const b=document.createElement("button");b.type="button";b.className="stepBtn"+(step===j?" active":"")+(s.state[j]==="done"?" done":"")+(s.state[j]==="skip"?" skip":"");b.textContent=s.state[j]==="done"?"✓":String(j+1);b.title=task.time+" — "+task.kind;b.setAttribute("aria-label","Step "+(j+1)+": "+task.kind+(s.state[j]==="done"?", completed":""));b.disabled=!reachable(current,j);b.onclick=()=>{if(step!==j){step=j;revealed=false;resetTimer();render()}};el("stepNav").appendChild(b)});
+el("status").textContent="STEP "+(step+1)+" / 10 · "+t.kind;
+el("slot").textContent=t.time;el("title").textContent=t.title;el("subtitle").textContent=t.sub;
+el("mission").textContent=t.mission;el("deliverable").textContent=t.deliver;
+el("steps").innerHTML="";t.steps.forEach(a=>{const li=document.createElement("li");li.textContent=a;el("steps").appendChild(li)});
+el("question").textContent=t.q;el("answer").textContent=t.a;el("answer").hidden=!revealed;el("answerButton").textContent=revealed?"Hide explained answer":"Show explained answer";el("answerButton").setAttribute("aria-expanded",String(revealed));
+el("notesInput").value=s.notes[step]||"";
+el("done").textContent=s.state[step]==="done"?"✓ Completed · Continue →":"Mark completed →";
+el("skip").textContent=s.state[step]==="skip"?"Skipped · Continue →":"Skip for now →";
+el("back").disabled=step===0;
+el("hint").textContent=step===9?"End of tonight's study plan. Copy your summary below.":"Completing or skipping unlocks the next block. Your notes save automatically.";
+el("countdown").textContent=fmt(seconds)}
+function updateStatus(status){saved[current].state[step]=status;if(step<9){saved[current].active=Math.max(saved[current].active,step+1);step++}persist();revealed=false;resetTimer();render()}
+el("done").onclick=()=>updateStatus("done");
+el("skip").onclick=()=>updateStatus("skip");
+el("back").onclick=()=>{if(step>0){step--;revealed=false;resetTimer();render()}};
+el("student0").onclick=()=>switchTo(0);el("student1").onclick=()=>switchTo(1);
+function switchTo(i){if(i===current)return;current=i;step=saved[i].active;revealed=false;resetTimer();render()}
+el("answerButton").onclick=()=>{revealed=!revealed;render()};
+el("notesInput").oninput=e=>{saved[current].notes[step]=e.target.value;persist()};
+el("timerToggle").onclick=()=>{if(running){stopTimer();return}if(seconds===0)seconds=plans[current].tasks[step].mins*60;running=true;el("timerToggle").textContent="Pause";timer=setInterval(()=>{if(seconds>0){seconds--;el("countdown").textContent=fmt(seconds)}if(seconds<=0){stopTimer();el("copyStatus").textContent="Focus timer finished — mark the block when your notebook work is done."}},1000)};
+el("timerReset").onclick=resetTimer;
+function summary(){const p=plans[current],s=saved[current];let out="HYBRID MATRIX · FRI 20 NOV 2026\n"+p.person+" · "+p.branch+"\nCompleted: "+totalDone(current)+"/10\n\n";p.tasks.forEach((t,j)=>{out+=(s.state[j]==="done"?"✅":s.state[j]==="skip"?"⏭️":"⬜")+" "+t.time+" — "+t.kind+"\n";if(s.notes[j].trim())out+="Note: "+s.notes[j].trim()+"\n"});return out}
+function copyText(s){if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(s);const t=document.createElement("textarea");t.value=s;document.body.appendChild(t);t.select();try{document.execCommand("copy")}finally{t.remove()}return Promise.resolve()}
+el("copySummary").onclick=async()=>{try{await copyText(summary());el("copyStatus").textContent="Progress report copied. Paste into WhatsApp."}catch(e){el("copyStatus").textContent="Copy unavailable. Use the browser share menu."}};
+el("copyLink").onclick=async()=>{try{await copyText(location.href);el("copyStatus").textContent="Page link copied."}catch(e){el("copyStatus").textContent="Copy unavailable. Copy the URL from the address bar."}};
+el("resetAll").onclick=()=>{if(confirm("Reset "+plans[current].person+"'s progress and notes on this device?")){saved[current]=fresh();step=0;revealed=false;persist();resetTimer();render();el("copyStatus").textContent="This student's progress was reset."}};
+resetTimer();render();
+</script>
+</body>
+</html>
